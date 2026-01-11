@@ -1,6 +1,8 @@
-public class main {
+package Default;
+
+public class Main {
     public static void main(String[] args){
-        finestra simulazione = new finestra();
+        Finestra simulazione = new Finestra();
         simulazione.setVisible(true);
     }
 }
