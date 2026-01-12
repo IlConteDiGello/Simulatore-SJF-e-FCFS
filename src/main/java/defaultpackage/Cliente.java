@@ -1,4 +1,4 @@
-package Default;
+package defaultpackage;
 
 public class Cliente {
     private String nome;
@@ -24,6 +24,13 @@ public class Cliente {
     public int getCassaPreferita() {
         return cassaPreferita;
     }
+    
+    @Override
+    public String toString() {
+        return "Cliente{" + "nome=" + nome + ", numArticoli=" + numArticoli + ", cassaPreferita=" + cassaPreferita + '}';
+    }
+    
+    
     
     
     
