@@ -1,5 +1,5 @@
 
-class Cliente {
+class Cliente implements Comparable<Cliente> {
   String nome;
   int numArticoli;
   int cassaPreferita;
