@@ -11,10 +11,15 @@ void setup() {
   
   println();
   
-  filaFCFS = creaFilaFCFS();
-  filaSJF = creaFilaSJF();
+  filaFCFS = creaFilaFCFS(listaClienti);
+  filaSJF = creaFilaSJF(listaClienti);
   
   for(int i = 0; i < filaFCFS.length; i++)
     println(filaFCFS[i]);
+  
+  println();
+    
+  for(int i = 0; i < filaSJF.length; i++)
+    println(filaSJF[i]);
   
 }
