@@ -1,4 +1,7 @@
 int tempoTotale=0;
+class Cassa {
+  
+}
 
 void drawCassaFCFS(){
   rect(width-110, height/2 - 150, 50, 100);

@@ -1,4 +1,3 @@
-
 class Cliente implements Comparable<Cliente> {
   String nome;
   int numArticoli;
@@ -35,9 +34,8 @@ class Cliente implements Comparable<Cliente> {
   }
 }
 
-void drawClienti(){
+/*void drawClienti(){
   //for each, scorre ogni elemento dell'arraylist
   for (Cliente c : clienti) {
     println(c.nome);
-}
-}
+  }*/
