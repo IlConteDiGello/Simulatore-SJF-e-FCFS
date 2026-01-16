@@ -1,5 +1,5 @@
 
-class Cliente {//implements Comparable<Cliente> {
+class Cliente implements Comparable<Cliente> {
   String nome;
   int numArticoli;
   int cassaPreferita;
@@ -27,6 +27,11 @@ class Cliente {//implements Comparable<Cliente> {
   @Override
     String toString() {
     return "Cliente: " + "nome = " + nome + ", numArticoli = " + numArticoli + ", cassaPreferita = " + cassaPreferita;
+  }
+  
+  @Override
+  public int compareTo(Cliente other) {
+    return this.numArticoli - other.getNumArticoli();
   }
 }
 
