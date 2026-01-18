@@ -1,5 +1,22 @@
 int tempoTotale=0;
 class Cassa {
+  private int x;
+  private int y;
+  private Cliente[] fila;
+  private final static int distanzaClienti = 100;
+  public PImage immagineCassa;
+
+  Cassa (int x, int y, Cliente[] fila, PImage immagineCassa) {
+    this.x = x;
+    this.y = y;
+    this.fila = fila;
+    this. immagineCassa = immagineCassa;
+  }
+
+  public void draw() {
+    image(immagineCassa, x, y);
+  }
+
 }
 
 void drawCassaFCFS() {
