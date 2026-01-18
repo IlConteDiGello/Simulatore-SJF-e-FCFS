@@ -27,15 +27,15 @@ class Cliente implements Comparable<Cliente> {
     String toString() {
     return "Cliente: " + "nome = " + nome + ", numArticoli = " + numArticoli + ", cassaPreferita = " + cassaPreferita;
   }
-  
+
   @Override
-  public int compareTo(Cliente other) {
+    public int compareTo(Cliente other) {
     return this.numArticoli - other.getNumArticoli();
   }
 }
 
 /*void drawClienti(){
-  //for each, scorre ogni elemento dell'arraylist
-  for (Cliente c : clienti) {
-    println(c.nome);
-  }*/
+ //for each, scorre ogni elemento dell'arraylist
+ for (Cliente c : clienti) {
+ println(c.nome);
+ }*/

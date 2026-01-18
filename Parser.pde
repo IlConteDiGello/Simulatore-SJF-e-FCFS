@@ -18,7 +18,7 @@ Cliente[] parseInput (String fileName) {
     System.out.println("An error occurred: " + e);
   }
 
-    return clienti.toArray(Cliente[]::new);
+  return clienti.toArray(Cliente[]::new);
 }
 
 //https://www.w3schools.com/java/java_files_read.asp
