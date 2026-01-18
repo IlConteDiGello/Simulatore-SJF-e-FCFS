@@ -4,8 +4,11 @@ class Cassa {
   private int y;
   private Cliente[] fila;
   private final static int distanzaClienti = 100;
+  private int indiceClienteServito = 0;
   public PImage immagineCassa;
 
+
+  //costruttore
   Cassa (int x, int y, Cliente[] fila, PImage immagineCassa) {
     this.x = x;
     this.y = y;
@@ -13,8 +16,18 @@ class Cassa {
     this. immagineCassa = immagineCassa;
   }
 
+
+  //metodi
   public void draw() {
     image(immagineCassa, x, y);
+  }
+
+  public void drawFila() {
+    int contatore = 0;
+
+    for(int i = 0; i < fila.length; i++)
+      if (fila[i] != null) 
+        fila[i].     
   }
 
 }

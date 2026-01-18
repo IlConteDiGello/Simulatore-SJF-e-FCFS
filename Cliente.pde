@@ -1,13 +1,15 @@
 class Cliente implements Comparable<Cliente> {
-  String nome;
-  int numArticoli;
-  int cassaPreferita;
+  private String nome;
+  private int numArticoli;
+  private int cassaPreferita;
+  public PImage sprite;
 
   //costruttore
   Cliente(String nome, int numArticoli, int cassaPreferita) {
     this.nome = nome;
     this.numArticoli = numArticoli;
     this.cassaPreferita = cassaPreferita;
+    this.sprite = fetchSprite(nome);
   }
 
   //getter
