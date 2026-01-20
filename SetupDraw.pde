@@ -3,8 +3,6 @@
 IMPORTANTE: TOGLIERE NUMERI MAGICI
 
 */
-Cliente[] filaFCFS;
-Cliente[] filaSJF;
 
 void setup() {
   size(600, 600);
@@ -22,13 +20,12 @@ void setup() {
   FCFS.immagineCassa.resize(100, 100);
   FCFS.draw();
 
-  Cassa SJF = new Cassa(width-110, height - 150, creaFilaFCFS(listaClienti), loadImage("Cassa.png"));
+  Cassa SJF = new Cassa(width-110, height - 150, creaFilaSJF(listaClienti), loadImage("Cassa.png"));
   SJF.immagineCassa.resize(100, 100);
   SJF.draw();
 
-  
-  filaFCFS = creaFilaFCFS(listaClienti);  //creo la fila dei clienti FCFS
-  filaSJF = creaFilaSJF(listaClienti);  //creo la file dei clienti SJF
+  FCFS.drawFila();
+  SJF.drawFila();
 
   //drawFileFCFS(filaFCFS);  //richiamo la funzione per
   //drawFileSJF(filaSJF);

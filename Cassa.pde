@@ -3,7 +3,9 @@ class Cassa {
   private int x;
   private int y;
   private Cliente[] fila;
-  private final static int distanzaClienti = 100;
+  private final static int distanzaClienti = -100;
+  private final static int xOffsetFila = -100;
+  private final static int yOffsetFila = 0;
   private int indiceClienteServito = 0;
   public PImage immagineCassa;
 
@@ -25,9 +27,12 @@ class Cassa {
   public void drawFila() {
     int contatore = 0;
 
-    for(int i = 0; i < fila.length; i++)
+    for(int i = indiceClienteServito; i < fila.length; i++) {
       if (fila[i] != null) 
-        fila[i].     
+        image(fila[i].sprite, x + xOffsetFila + distanzaClienti*contatore, y + yOffsetFila);
+        
+      contatore++;
+    }
   }
 
 }
