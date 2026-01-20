@@ -1,50 +1,35 @@
 int tempoTotale=0;
-class Cassa {
-  private int x;
-  private int y;
-  private Cliente[] fila;
-  private final static int distanzaClienti = 100;
-  public PImage immagineCassa;
-
-  Cassa (int x, int y, Cliente[] fila, PImage immagineCassa) {
-    this.x = x;
-    this.y = y;
-    this.fila = fila;
-    this. immagineCassa = immagineCassa;
-  }
-
-  public void draw() {
-    image(immagineCassa, x, y);
-  }
-
-}
 
 void drawCassaFCFS() {
-  rect(width-110, height/2 - 150, 50, 100);
-  rect(width-160, height/2 - 100, 150, 100);
+  int x = width-110;
+  int y = height/2 - immagineCassa.width;
+  image(immagineCassa, x, y);
 }
 
-void drawFileFCFS(Cliente[] filaFCFS) {  //funzione che disegna la fila, viene passato per parametro la fila dell'FCFS
-  int offsetX = 75; //provvisorio
-  for (int i = 0; i < filaFCFS.length; i++) {  //scorre tutti i clienti della fila
-    println(filaFCFS[i]);
+int offsetX = 0; //assegnato valore nel setup
 
-    rect(width - 200 - offsetX, height/2 - 100, 50, 100);  //provvisorio
-    offsetX += 75;  //aumento l'offset, cosi si staccano i clienti
+void drawFileFCFS(Cliente[] filaFCFS) {  //funzione che disegna la fila, viene passato per parametro la fila dell'FCFS
+  int offsetXCopia = offsetX;
+  for (int i = 0; i < filaFCFS.length; i++) {  //scorre tutti i clienti della fila
+    //println(filaFCFS[i]);
+
+    rect(width - offsetXCopia - 200, height/2 - 100, 50, 100);  //provvisorio
+    offsetXCopia += 75;  //aumento l'offset, cosi si staccano i clienti
   }
 }
 
 void drawFileSJF(Cliente[] filaSJF) {
-  int offsetX = 75; //provvisorio
+  int offsetXCopia = offsetX;
   for (int i = 0; i < filaSJF.length; i++) {
-    println(filaSJF[i]);
+    //println(filaSJF[i]);
 
-    rect(width - 200 - offsetX, height - 110, 50, 100);
-    offsetX += 75;
+    rect(width - offsetXCopia - 200, height - 110, 50, 100);
+    offsetXCopia += 75;
   }
 }
 
 void drawCassaSJF() {
-  rect(width-110, height - 150, 50, 100);
-  rect(width-160, height - 100, 150, 100);
+  int x = width-110;
+  int y = height - immagineCassa.width;
+  image(immagineCassa, x, y);
 }

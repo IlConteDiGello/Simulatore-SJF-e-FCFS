@@ -59,3 +59,10 @@ PImage fetchSprite(String nome) {
   }
 
 }
+
+PImage immagineCassa;
+
+void loadImages(){
+  immagineCassa = loadImage("Cassa.png");
+  immagineCassa.resize(100,100);
+}
