@@ -1,4 +1,4 @@
-int tempoTotale=0;
+
 
 void drawCassaFCFS() {
   int x = width-110;
@@ -6,10 +6,9 @@ void drawCassaFCFS() {
   image(immagineCassa, x, y);
 }
 
-int offsetX = 0; //assegnato valore nel setup
 
 void drawFileFCFS(Cliente[] filaFCFS) {  //funzione che disegna la fila, viene passato per parametro la fila dell'FCFS
-  int offsetXCopia = offsetX;
+  int offsetXCopia = offsetXFCFS;
   for (int i = 0; i < filaFCFS.length; i++) {  //scorre tutti i clienti della fila
     //println(filaFCFS[i]);
 
@@ -19,7 +18,7 @@ void drawFileFCFS(Cliente[] filaFCFS) {  //funzione che disegna la fila, viene p
 }
 
 void drawFileSJF(Cliente[] filaSJF) {
-  int offsetXCopia = offsetX;
+  int offsetXCopia = offsetXSJF;
   for (int i = 0; i < filaSJF.length; i++) {
     //println(filaSJF[i]);
 

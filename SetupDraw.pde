@@ -6,6 +6,16 @@
 Cliente[] filaFCFS;
 Cliente[] filaSJF;
 
+int iFCFS = 0;
+int iSJF = 0;
+int tempoUltimoControllo = 0;
+int tempoScansionamento = 1000;
+int tempoTotale=0;
+
+int offsetXFCFS = 0; //assegnato valore nel setup
+int offsetXSJF = 0; //
+PImage immagineCassa;
+
 void setup() {
   size(600, 600);
   frameRate(60);
@@ -17,18 +27,16 @@ void setup() {
    println(listaClienti[i]);
    
    println("\n");*/
-   
-   loadImages();
 
-   int offsetX = immagineCassa.width; //provvisorio
+  loadImages();
+
+  offsetXFCFS = immagineCassa.width;
+  offsetXSJF = immagineCassa.width;
 
   filaFCFS = creaFilaFCFS(listaClienti);  //creo la fila dei clienti FCFS
   filaSJF = creaFilaSJF(listaClienti);  //creo la file dei clienti SJF
 }
 
-int i = 0;
-int tempoUltimoControllo = 0;
-int tempoScansionamento = 1000;
 /*
   logica scorrimento fila:
  
@@ -36,14 +44,26 @@ int tempoScansionamento = 1000;
  
  */
 void draw() {
+  background(200);
+  
+  drawBottoni();
+  
   drawCassaFCFS();
   drawCassaSJF();
+
   if (millis() - tempoUltimoControllo >= tempoScansionamento) {
-    filaFCFS[i].numArticoli--;
-    println(filaFCFS[i].numArticoli);
-    if (filaFCFS[i].numArticoli <= 0) {
-      offsetX -= 75;
-      i++;
+    filaFCFS[iFCFS].numArticoli--;
+    println(filaFCFS[iFCFS].numArticoli);
+    if (filaFCFS[iFCFS].numArticoli <= 0) {
+      offsetXFCFS -= 75;
+      iFCFS++;
+    }
+    
+    filaSJF[iSJF].numArticoli--;
+    println(filaSJF[iSJF].numArticoli);
+    if (filaSJF[iSJF].numArticoli <= 0) {
+      offsetXSJF -= 75;
+      iSJF++;
     }
     tempoUltimoControllo = millis();
   }

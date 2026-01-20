@@ -49,29 +49,33 @@ PImage fetchSprite(String nome) {
   PImage prov;
 
   switch (nome) {
-    case "luca giusti":
-      prov = loadImage("stickman.jpg");
-      prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
-      break;
-    
-    case "lucia pellegrini":
-      prov = loadImage("stickman.jpg");
-      prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
-      break;
+  case "luca giusti":
+    prov = loadImage("stickman.jpg");
+    prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
+    break;
 
-    default:
-      prov = loadImage("stickman.jpg");
-      prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
-      break;
+  case "lucia pellegrini":
+    prov = loadImage("stickman.jpg");
+    prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
+    break;
+
+  default:
+    prov = loadImage("stickman.jpg");
+    prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
+    break;
   }
 
   return prov;
-
 }
 
-PImage immagineCassa;
 
-void loadImages(){
+void loadImages() {
   immagineCassa = loadImage("Cassa.png");
-  immagineCassa.resize(100,100);
+  immagineCassa.resize(100, 100);
+}
+
+void drawBottoni(){
+  int x =  100;
+  int y =  100;
+  circle(x, y, 50);
 }
