@@ -30,11 +30,18 @@ class Cassa {
     int contatore = 0;
 
     for(int i = indiceClienteServito; i < fila.length; i++) {
-      if (fila[i] != null) 
+      if (fila[i] != null) {
         image(fila[i].sprite, x + xOffsetFila + distanzaClienti*contatore, y + yOffsetFila);
-        
+        text (fila[i].getNome() + ": " + fila[i].getNumArticoli(), x + xOffsetFila + distanzaClienti*contatore, y + yOffsetFila + 1.2*fila[i].sprite.height);
+      }
       contatore++;
     }
+  }
+
+  public void scansiona() {
+    fila[indiceClienteServito].numArticoli--;
+    if (fila[indiceClienteServito].numArticoli <= 0) 
+      indiceClienteServito++;
   }
 
 }

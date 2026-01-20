@@ -1,6 +1,6 @@
 class Cliente implements Comparable<Cliente> {
   private String nome;
-  private int numArticoli;
+  public int numArticoli;
   private int cassaPreferita;
   public PImage sprite;
 
