@@ -65,6 +65,7 @@ void draw() {
       offsetXSJF -= 75;
       iSJF++;
     }
+    tempoTotale++;
     tempoUltimoControllo = millis();
   }
   drawFileFCFS(filaFCFS);  //richiamo la funzione per
