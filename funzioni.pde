@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.io.File;
 import java.util.Scanner;
 
+//queste due funzioni smistano i clienti in base alla cassa preferita
 Cliente[] creaFilaFCFS (Cliente[] clientiDaSmistare) {
   ArrayList<Cliente> provvisorio = new ArrayList<>();
 
@@ -25,6 +26,7 @@ Cliente[] creaFilaSJF (Cliente[] clientiDaSmistare) {
   return provvisorio.toArray(Cliente[]::new);
 }
 
+//legge il file clienti.txt e lo analizza creando un array con i clienti
 Cliente[] parseInput (String fileName) {
   File inputFile = new File(dataPath(fileName)); //forza processing a cercare nella cartella "data", cosi trova sempre il file
   ArrayList<Cliente> clienti = new ArrayList<Cliente>();
@@ -44,6 +46,8 @@ Cliente[] parseInput (String fileName) {
   return clienti.toArray(Cliente[]::new);
 }
 
+
+//EASTER EGG: carica gli sprite in base al nome. Alcuni nomi caricano sprite diversi
 PImage fetchSprite(String nome) {
   nome = nome.toLowerCase();
   PImage prov;
