@@ -46,17 +46,26 @@ Cliente[] parseInput (String fileName) {
 
 PImage fetchSprite(String nome) {
   nome = nome.toLowerCase();
+  PImage prov;
 
   switch (nome) {
     case "luca giusti":
-      return loadImage("freeman.png");
+      prov = loadImage("stickman.jpg");
+      prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
+      break;
     
     case "lucia pellegrini":
-      return loadImage("zombie.png");
+      prov = loadImage("stickman.jpg");
+      prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
+      break;
 
     default:
-      return loadImage("clienteDefault.png");
+      prov = loadImage("stickman.jpg");
+      prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
+      break;
   }
+
+  return prov;
 
 }
 
