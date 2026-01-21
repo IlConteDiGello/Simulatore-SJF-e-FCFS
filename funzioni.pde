@@ -78,8 +78,6 @@ void loadImages() {
   immagineCassa.resize(100, 100);
 }
 
-void drawBottoni(){
-  int x =  100;
-  int y =  100;
-  circle(x, y, 50);
+void mousePressed(){
+  bottone.click();
 }

@@ -46,6 +46,12 @@ class Cassa {
       indiceClienteServito++;
   }
   
+  public boolean hasCliente () {
+    if (indiceClienteServito < fila.length)
+      return true;
+    else 
+      return false;
+  }
 
 }
 
