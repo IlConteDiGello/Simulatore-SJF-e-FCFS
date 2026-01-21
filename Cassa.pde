@@ -11,7 +11,7 @@ void drawFileFCFS(Cliente[] filaFCFS) {  //funzione che disegna la fila, viene p
   int offsetXCopia = offsetXFCFS;
   for (int i = 0; i < filaFCFS.length; i++) {  //scorre tutti i clienti della fila
     //println(filaFCFS[i]);
-
+    fill(255);
     rect(width - offsetXCopia - 200, height/2 - 100, 50, 100);  //provvisorio
     offsetXCopia += 75;  //aumento l'offset, cosi si staccano i clienti
   }
@@ -21,7 +21,7 @@ void drawFileSJF(Cliente[] filaSJF) {
   int offsetXCopia = offsetXSJF;
   for (int i = 0; i < filaSJF.length; i++) {
     //println(filaSJF[i]);
-
+    fill(255);
     rect(width - offsetXCopia - 200, height - 110, 50, 100);
     offsetXCopia += 75;
   }

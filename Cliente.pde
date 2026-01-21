@@ -35,9 +35,3 @@ class Cliente implements Comparable<Cliente> {
     return this.numArticoli - other.getNumArticoli();
   }
 }
-
-/*void drawClienti(){
- //for each, scorre ogni elemento dell'arraylist
- for (Cliente c : clienti) {
- println(c.nome);
- }*/

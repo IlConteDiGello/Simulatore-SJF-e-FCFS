@@ -11,10 +11,14 @@ int iSJF = 0;
 int tempoUltimoControllo = 0;
 int tempoScansionamento = 1000;
 int tempoTotale=0;
+boolean filaFCFSFinita = false;
+boolean filaSJFFinita = false;
 
 int offsetXFCFS = 0; //assegnato valore nel setup
 int offsetXSJF = 0; //
 PImage immagineCassa;
+
+Bottone bottone;
 
 void setup() {
   size(600, 600);
@@ -22,52 +26,58 @@ void setup() {
 
   Cliente[] listaClienti = parseInput("clienti.txt");
 
-  /*
-  for (int i = 0; i < listaClienti.length; i++)  //questo ciclo serve a scrivere tutti i clienti, nome num. prodotti e cassa
-   println(listaClienti[i]);
-   
-   println("\n");*/
+  bottone = new Bottone(width/8, height/8, 100, "X1");
 
   loadImages();
 
   offsetXFCFS = immagineCassa.width;
   offsetXSJF = immagineCassa.width;
 
-  filaFCFS = creaFilaFCFS(listaClienti);  //creo la fila dei clienti FCFS
-  filaSJF = creaFilaSJF(listaClienti);  //creo la file dei clienti SJF
+  filaFCFS = creaFilaFCFS(listaClienti);
+  filaSJF = creaFilaSJF(listaClienti);
 }
 
-/*
-  logica scorrimento fila:
- 
- 
- 
- */
 void draw() {
   background(200);
-  
-  drawBottoni();
-  
+  //
   drawCassaFCFS();
   drawCassaSJF();
 
+  //
   if (millis() - tempoUltimoControllo >= tempoScansionamento) {
-    filaFCFS[iFCFS].numArticoli--;
-    println(filaFCFS[iFCFS].numArticoli);
-    if (filaFCFS[iFCFS].numArticoli <= 0) {
-      offsetXFCFS -= 75;
-      iFCFS++;
+    //
+    if (iFCFS < filaFCFS.length) {
+      if (filaFCFS[iFCFS].numArticoli <= 0) {
+        offsetXFCFS -= 75;
+        iFCFS++;
+      } else {
+        filaFCFS[iFCFS].numArticoli--;
+      }
+    } else if (!filaFCFSFinita) {
+      println("fila FCFS finita!!");
+      filaFCFSFinita = true;
     }
-    
-    filaSJF[iSJF].numArticoli--;
-    println(filaSJF[iSJF].numArticoli);
-    if (filaSJF[iSJF].numArticoli <= 0) {
-      offsetXSJF -= 75;
-      iSJF++;
+    //
+    if (iSJF < filaSJF.length) {
+      if (filaSJF[iSJF].numArticoli <= 0) {
+        offsetXSJF -= 75;
+        iSJF++;
+      } else {
+        filaSJF[iSJF].numArticoli--;
+      }
+    } else if (!filaSJFFinita) {
+      println("fila SJF finita!!");
+      filaSJFFinita = true;
     }
-    tempoTotale++;
+    //
+    if (iFCFS < filaFCFS.length || iSJF < filaSJF.length) {
+      tempoTotale++;
+    }
+    //
     tempoUltimoControllo = millis();
   }
-  drawFileFCFS(filaFCFS);  //richiamo la funzione per
+  //
+  drawFileFCFS(filaFCFS);
   drawFileSJF(filaSJF);
+  bottone.display();
 }
