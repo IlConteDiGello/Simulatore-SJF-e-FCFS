@@ -6,6 +6,7 @@ class Cassa {
   private final static int xOffsetFila = -100;
   private final static int yOffsetFila = 0;
   private int indiceClienteServito = 0;
+  private int tempo;
   public PImage immagineCassa;
 
 
@@ -40,9 +41,11 @@ class Cassa {
 
   public void scansiona() {
     fila[indiceClienteServito].numArticoli--;
+    tempo++;
     if (fila[indiceClienteServito].numArticoli <= 0) 
       indiceClienteServito++;
   }
+  
 
 }
 
