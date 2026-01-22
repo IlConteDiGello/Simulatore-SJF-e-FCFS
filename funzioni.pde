@@ -54,12 +54,12 @@ PImage fetchSprite(String nome) {
 
   switch (nome) {
   case "luca giusti":
-    prov = loadImage("stickman.jpg");
+    prov = loadImage("Freeman.png");
     prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
     break;
 
   case "lucia pellegrini":
-    prov = loadImage("stickman.jpg");
+    prov = loadImage("zombie.png");
     prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
     break;
 
@@ -72,6 +72,15 @@ PImage fetchSprite(String nome) {
   return prov;
 }
 
+void fammivedereirisultati(){
+  pushStyle();
+  fill(0, 150, 0);
+  textAlign(RIGHT, TOP);
+  text("Tempo trascorso in secondi: " + tempoTotale, width -20, 50);
+  textSize(15);
+  popStyle();
+
+}
 
 void loadImages() {
   immagineCassa = loadImage("Cassa.png");

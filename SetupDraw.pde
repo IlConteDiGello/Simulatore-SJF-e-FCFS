@@ -13,6 +13,7 @@ int tempoScansionamento = 1000;
 int tempoTotale=0;
 boolean filaFCFSFinita = false;
 boolean filaSJFFinita = false;
+boolean simulazioneFinita = false;
 
 PImage immagineCassa;
 Cassa FCFS;
@@ -41,51 +42,38 @@ void setup() {
 
 int i = 0;
 
-void draw() {  
+void draw() {
   background(200);
-  
+
   bottone.display();
-  
+
   FCFS.draw();
   SJF.draw();
+
+  if(simulazioneFinita){
+    fammivedereirisultati();
+  }else{
 
   //
   if (millis() - tempoUltimoControllo >= tempoScansionamento) {
     if (FCFS.hasCliente())
       FCFS.scansiona();
-    
+
     if (SJF.hasCliente())
       SJF.scansiona();
 
     tempoUltimoControllo = millis();
+
+    if (!FCFS.hasCliente() && !SJF.hasCliente()) {
+      simulazioneFinita = true;
+    } else {
+      tempoTotale++;
+    }
+  }
   }
 
+  //
   FCFS.drawFila();
   SJF.drawFila();
-    /*
-    if (iFCFS < filaFCFS.length) {
-      if (filaFCFS[iFCFS].numArticoli <= 0) {
-        offsetXFCFS -= 75;
-        iFCFS++;
-      } else {
-        filaFCFS[iFCFS].numArticoli--;
-      }
-    } else if (!filaFCFSFinita) {
-      println("fila FCFS finita!!");
-      filaFCFSFinita = true;
-    }*/
-    /*
-    if (iSJF < filaSJF.length) {
-      if (filaSJF[iSJF].numArticoli <= 0) {
-        offsetXSJF -= 75;
-        iSJF++;
-      } else {
-        filaSJF[iSJF].numArticoli--;
-      }
-    } else if (!filaSJFFinita) {
-      println("fila SJF finita!!");
-      filaSJFFinita = true;
-    }
-  }*/
   bottone.display();
 }

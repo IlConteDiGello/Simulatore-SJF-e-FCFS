@@ -1,7 +1,7 @@
-Giovanni Mucciaccia,3,0
-Marzone,11,0
-Lucia Pellegrini,7,1
-Luca Giusti,1,1
-Michael Esterasi,7,0
+Giovanni Mucciaccia,24,1
+Marzone,15,0
+lucia pellegrini,9,1
+luca giusti,10,1
+Michael Esterasi,15,0
 Licio Gelli,11,0
-Jack Sparrow,5,1
+Jack Sparrow,25,1
