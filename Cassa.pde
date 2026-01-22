@@ -1,6 +1,6 @@
 class Cassa {
-  private int x;
-  private int y;
+  private float x;
+  private float y;
   private Cliente[] fila;
   private final static int distanzaClienti = -100;
   private final static int xOffsetFila = -100;
@@ -11,7 +11,7 @@ class Cassa {
 
 
   //costruttore
-  Cassa (int x, int y, Cliente[] fila, PImage immagineCassa) {
+  Cassa (float x, float y, Cliente[] fila, PImage immagineCassa) {
     this.x = x;
     this.y = y;
     this.fila = fila;

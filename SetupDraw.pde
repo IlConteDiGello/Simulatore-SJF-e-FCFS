@@ -27,12 +27,12 @@ void setup() {
 
   Cliente[] listaClienti = parseInput("clienti.txt");
 
-  FCFS = new Cassa(width-110, height/2 - 150, creaFilaFCFS(listaClienti), loadImage("Cassa.png"));
+  FCFS = new Cassa(width/1.25, height/4, creaFilaFCFS(listaClienti), loadImage("Cassa.png"));
   FCFS.immagineCassa.resize(100, 100);
   FCFS.draw();
   bottone = new Bottone(width/8, height/8, 100, "X1");
 
-  SJF = new Cassa(width-110, height - 150, creaFilaSJF(listaClienti), loadImage("Cassa.png"));
+  SJF = new Cassa(width/1.25, height/1.5, creaFilaSJF(listaClienti), loadImage("Cassa.png"));
   SJF.immagineCassa.resize(100, 100);
   SJF.draw();
 
@@ -50,26 +50,26 @@ void draw() {
   FCFS.draw();
   SJF.draw();
 
-  if(simulazioneFinita){
+  if (simulazioneFinita) {
     fammivedereirisultati();
-  }else{
+  } else {
 
-  //
-  if (millis() - tempoUltimoControllo >= tempoScansionamento) {
-    if (FCFS.hasCliente())
-      FCFS.scansiona();
+    //
+    if (millis() - tempoUltimoControllo >= tempoScansionamento) {
+      if (FCFS.hasCliente())
+        FCFS.scansiona();
 
-    if (SJF.hasCliente())
-      SJF.scansiona();
+      if (SJF.hasCliente())
+        SJF.scansiona();
 
-    tempoUltimoControllo = millis();
+      tempoUltimoControllo = millis();
 
-    if (!FCFS.hasCliente() && !SJF.hasCliente()) {
-      simulazioneFinita = true;
-    } else {
-      tempoTotale++;
+      if (!FCFS.hasCliente() && !SJF.hasCliente()) {
+        simulazioneFinita = true;
+      } else {
+        tempoTotale++;
+      }
     }
-  }
   }
 
   //

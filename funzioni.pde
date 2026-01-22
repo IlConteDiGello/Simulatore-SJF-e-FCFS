@@ -76,8 +76,8 @@ void fammivedereirisultati(){
   pushStyle();
   fill(0, 150, 0);
   textAlign(RIGHT, TOP);
-  text("Tempo trascorso in secondi: " + tempoTotale, width -20, 50);
-  textSize(15);
+  textSize(25);
+  text("Tempo trascorso in secondi: " + tempoTotale, width/1.1, 50);
   popStyle();
 
 }
