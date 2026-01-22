@@ -8,7 +8,8 @@ Cliente[] filaSJF;
 
 int tempoUltimoControllo = 0;
 int tempoScansionamento = 1000;
-int tempoTotale=0;
+int tempoTotale = 0;
+boolean simulazioneFinita = false;
 
 PImage immagineCassa;
 Cassa FCFS;
@@ -22,66 +23,51 @@ void setup() {
 
   Cliente[] listaClienti = parseInput("clienti.txt");
 
-  FCFS = new Cassa(width-110, height/2 - 150, creaFilaFCFS(listaClienti), loadImage("Cassa.png"));
-  FCFS.immagineCassa.resize(100, 100);
-  FCFS.draw();
   bottone = new Bottone(width/8, height/8, 100, "X1");
 
-  SJF = new Cassa(width-110, height - 150, creaFilaSJF(listaClienti), loadImage("Cassa.png"));
+  FCFS = new Cassa(width-150, height/2 - 150, creaFilaFCFS(listaClienti), loadImage("Cassa.png"));
+  FCFS.immagineCassa.resize(100, 100);
+
+  SJF = new Cassa(width-150, height - 150, creaFilaSJF(listaClienti), loadImage("Cassa.png"));
   SJF.immagineCassa.resize(100, 100);
-  SJF.draw();
 
   FCFS.drawFila();
   SJF.drawFila();
 }
 
-int i = 0;
-
-void draw() {  
+void draw() {
   background(200);
-  
+
   bottone.display();
-  
+
   FCFS.draw();
+  text("FCFS\t tempo medio: " + FCFS.getTempoMedio(), FCFS.x, FCFS.y - 0.2*FCFS.immagineCassa.height);
+
   SJF.draw();
+  text("SJF\t tempo medio: " + SJF.getTempoMedio(), SJF.x, SJF.y - 0.2*SJF.immagineCassa.height);
 
-  //
-  if (millis() - tempoUltimoControllo >= tempoScansionamento) {
-    if (FCFS.hasCliente())
-      FCFS.scansiona();
-    
-    if (SJF.hasCliente())
-      SJF.scansiona();
-
-    tempoUltimoControllo = millis();
+  if(simulazioneFinita){
+    visualizzaRisultati();
+  }
+  else {
+    if (millis() - tempoUltimoControllo >= tempoScansionamento) {
+      if (FCFS.hasCliente())
+        FCFS.scansiona();
+  
+      if (SJF.hasCliente())
+        SJF.scansiona();
+  
+      tempoUltimoControllo = millis();
+  
+      if (!FCFS.hasCliente() && !SJF.hasCliente()) {
+        simulazioneFinita = true;
+      } else {
+        tempoTotale++;
+      }
+    }
   }
 
   FCFS.drawFila();
   SJF.drawFila();
-    /*
-    if (iFCFS < filaFCFS.length) {
-      if (filaFCFS[iFCFS].numArticoli <= 0) {
-        offsetXFCFS -= 75;
-        iFCFS++;
-      } else {
-        filaFCFS[iFCFS].numArticoli--;
-      }
-    } else if (!filaFCFSFinita) {
-      println("fila FCFS finita!!");
-      filaFCFSFinita = true;
-    }*/
-    /*
-    if (iSJF < filaSJF.length) {
-      if (filaSJF[iSJF].numArticoli <= 0) {
-        offsetXSJF -= 75;
-        iSJF++;
-      } else {
-        filaSJF[iSJF].numArticoli--;
-      }
-    } else if (!filaSJFFinita) {
-      println("fila SJF finita!!");
-      filaSJFFinita = true;
-    }
-  }*/
   bottone.display();
 }

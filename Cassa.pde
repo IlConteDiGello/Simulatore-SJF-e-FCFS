@@ -20,6 +20,10 @@ class Cassa {
 
 
   //metodi
+  
+  public float getTempoMedio() {
+    return (float)tempo / (indiceClienteServito + 1);
+  }
 
   //disegna la cassa
   public void draw() {
@@ -54,5 +58,3 @@ class Cassa {
   }
 
 }
-
-
