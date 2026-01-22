@@ -46,38 +46,12 @@ Cliente[] parseInput (String fileName) {
   return clienti.toArray(Cliente[]::new);
 }
 
-
-//EASTER EGG: carica gli sprite in base al nome. Alcuni nomi caricano sprite diversi
-PImage fetchSprite(String nome) {
-  nome = nome.toLowerCase();
-  PImage prov;
-
-  switch (nome) {
-  case "luca giusti":
-    prov = loadImage("Freeman.png");
-    prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
-    break;
-
-  case "lucia pellegrini":
-    prov = loadImage("zombie.png");
-    prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
-    break;
-
-  default:
-    prov = loadImage("stickman.jpg");
-    prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
-    break;
-  }
-
-  return prov;
-}
-
 void visualizzaRisultati(){
   pushStyle();
   fill(0, 150, 0);
   textAlign(RIGHT, TOP);
-  text("Tempo trascorso in secondi: " + tempoTotale, width -20, 50);
-  textSize(15);
+  textSize(25);
+  text("Tempo trascorso in secondi: " + tempoTotale, width/1.1, 50);
   popStyle();
 
 }

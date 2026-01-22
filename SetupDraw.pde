@@ -25,11 +25,11 @@ void setup() {
 
   bottone = new Bottone(width/8, height/8, 100, "X1");
 
-  FCFS = new Cassa(width-150, height/2 - 150, creaFilaFCFS(listaClienti), loadImage("Cassa.png"));
-  FCFS.immagineCassa.resize(100, 100);
+  FCFS = new Cassa(width/1.35, height/4, creaFilaFCFS(listaClienti), loadImage("Cassa.png"));
+  FCFS.immagineCassa.resize((int)(FCFS.immagineCassa.width * 0.20), (int)(FCFS.immagineCassa.height * 0.20));
 
-  SJF = new Cassa(width-150, height - 150, creaFilaSJF(listaClienti), loadImage("Cassa.png"));
-  SJF.immagineCassa.resize(100, 100);
+  SJF = new Cassa(width/1.35, height/1.5, creaFilaSJF(listaClienti), loadImage("Cassa.png"));
+  SJF.immagineCassa.resize((int)(SJF.immagineCassa.width * 0.20), (int)(SJF.immagineCassa.height * 0.20));
 
   FCFS.drawFila();
   SJF.drawFila();
