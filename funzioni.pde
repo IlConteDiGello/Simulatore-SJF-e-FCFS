@@ -54,12 +54,12 @@ PImage fetchSprite(String nome) {
 
   switch (nome) {
   case "luca giusti":
-    prov = loadImage("stickman.jpg");
+    prov = loadImage("Freeman.png");
     prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
     break;
 
   case "lucia pellegrini":
-    prov = loadImage("stickman.jpg");
+    prov = loadImage("zombie.png");
     prov.resize((int) (prov.width * 0.1), (int) (prov.height * 0.1));
     break;
 

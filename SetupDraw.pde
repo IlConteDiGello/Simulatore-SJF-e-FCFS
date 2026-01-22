@@ -6,13 +6,9 @@
 Cliente[] filaFCFS;
 Cliente[] filaSJF;
 
-int iFCFS = 0;
-int iSJF = 0;
 int tempoUltimoControllo = 0;
 int tempoScansionamento = 1000;
 int tempoTotale=0;
-boolean filaFCFSFinita = false;
-boolean filaSJFFinita = false;
 
 PImage immagineCassa;
 Cassa FCFS;
